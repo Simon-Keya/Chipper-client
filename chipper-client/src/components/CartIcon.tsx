@@ -1,0 +1,31 @@
+import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { Badge } from "react-bootstrap";
+
+const CartIcon = () => {
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    // Your cart count update logic here
+    // For example, fetching the cart count from an API
+    const fetchCartCount = async () => {
+      const response = await fetch("/api/cart/count");
+      const data = await response.json();
+      setCartCount(data.count);
+    };
+
+    fetchCartCount();
+  }, []); // Empty dependency array means this effect runs only once on mount
+
+  return (
+    <div className="cart-icon">
+      <FontAwesomeIcon icon={faShoppingCart} />
+      <Badge pill variant="danger">
+        {cartCount}
+      </Badge>
+    </div>
+  );
+};
+
+export default CartIcon;
