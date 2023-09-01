@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { product } from '../services/product';
-import ProductCard from '../components/ProductCard'; // Fix import
+import { product } from '../services/product'; // Correct the import case
+import ProductCard from '../components/ProductCard'; // Import ProductCard
 
-interface ProductDetailProps {
-  /* Define any props if needed */
+interface ProductType {
+  id: number; // Correct the type of 'id'
+  name: string;
+  imageUrl: string;
+  price: number;
+  description: string;
+  // Define other properties as needed
 }
 
-const ProductDetail: React.FC<ProductDetailProps> = () => {
-  const { productId } = useParams<{ productId: string }>();
+const ProductDetail: React.FC = () => {
+  const { productId } = useParams<{ productId?: string }>(); // Make 'productId' optional
   const [productData, setProductData] = useState<ProductType | null>(null);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const fetchedProduct = await product.getProductById(productId);
-        setProductData(fetchedProduct);
+        if (productId !== undefined) { // Check if 'productId' is not undefined
+          const fetchedProduct = await product.getProductById(Number(productId).toString());
+          setProductData(fetchedProduct);
+        }
       } catch (error) {
         console.error('Error fetching product:', error);
       }
@@ -28,10 +35,7 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
     <div>
       {productData ? (
         <ProductCard
-          name={productData.name}
-          imageUrl={productData.imageUrl}
-          price={productData.price}
-          id={productData.id}
+          product={productData} // Pass the whole productData object as 'product'
         />
       ) : (
         <p>Loading...</p>
@@ -41,11 +45,3 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
 };
 
 export default ProductDetail;
-
-interface ProductType {
-  id: string;
-  name: string;
-  imageUrl: string;
-  price: number;
-  /* Define other properties as needed */
-}

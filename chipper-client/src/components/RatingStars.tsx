@@ -1,5 +1,5 @@
 import React from "react";
-import StarRating from "react-star-rating"; // Check if this is the correct import path
+import StarRatings from "react-star-ratings";
 
 interface RatingStarsProps {
   rating: number;
@@ -7,12 +7,16 @@ interface RatingStarsProps {
 
 const RatingStars: React.FC<RatingStarsProps> = ({ rating }) => {
   return (
-    <StarRating
-      name="rating"
-      value={rating}
-      starCount={5}
-      size={20}
-      readonly
+    <StarRatings
+      rating={rating}
+      numberOfStars={5}
+      starDimension="20px"
+      starSpacing="2px"
+      starRatedColor="gold"
+      starEmptyColor="gray"
+      starHoverColor="gold"
+      // starSelectingColor="gold" // Omit this prop if it's not recognized
+      changeRating={() => {}}
     />
   );
 };

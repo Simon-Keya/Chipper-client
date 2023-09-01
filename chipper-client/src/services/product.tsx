@@ -1,4 +1,4 @@
-import api from "./api";
+import { api } from "./api";
 
 export const product = {
   getProducts: async () => {
@@ -10,7 +10,7 @@ export const product = {
       throw new Error(response.data.message);
     }
   },
-  getProductById: async (productId) => {
+  getProductById: async (productId: string) => {
     const response = await api.get(`/products/${productId}`);
 
     if (response.status === 200) {

@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import UserAvatar from "./UserAvatar"; // Correct the import statement
+import UserAvatar from "./UserAvatar";
 
 interface HeaderProps {
   isLoggedIn: boolean;
 }
 
 const Header: React.FC<HeaderProps> = ({ isLoggedIn }) => {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState<string | null>(null);
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(null); // Add avatarUrl state
 
   useEffect(() => {
-    // Get the logged in user's username from the API.
     if (isLoggedIn) {
-      const fetchUsername = async () => {
-        const response = await fetch("/api/user/username");
-        const data = await response.json();
-        setUsername(data.username);
+      const fetchUserData = async () => {
+        try {
+          const response = await fetch("/api/user/data");
+          const data = await response.json();
+          setUsername(data.username);
+          setAvatarUrl(data.avatarUrl); // Set the avatarUrl from the API response
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
       };
-      fetchUsername();
+      fetchUserData();
     }
   }, [isLoggedIn]);
 
@@ -29,7 +34,9 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn }) => {
           <>
             <Link to="/products">Products</Link>
             <Link to="/cart">Cart</Link>
-            <UserAvatar username={username} />
+            {username && avatarUrl && ( // Check both username and avatarUrl before rendering
+              <UserAvatar username={username} avatarUrl={avatarUrl} />
+            )}
           </>
         ) : (
           <>

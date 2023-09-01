@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { Badge } from "react-bootstrap";
+import Badge from "react-bootstrap/Badge"; // Import Badge directly
 
 const CartIcon = () => {
   const [cartCount, setCartCount] = useState(0);
@@ -21,7 +21,7 @@ const CartIcon = () => {
   return (
     <div className="cart-icon">
       <FontAwesomeIcon icon={faShoppingCart} />
-      <Badge pill variant="danger">
+      <Badge pill bg="danger"> {/* Use 'bg' instead of 'variant' */}
         {cartCount}
       </Badge>
     </div>

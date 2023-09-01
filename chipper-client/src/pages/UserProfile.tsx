@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { auth } from "../services/auth";
-import { UserProfile } from "../components/UserProfile";
+import UserProfileComponent from "../components/UserProfile";
 
-const UserProfile = () => {
-  const [user, setUser] = useState(null);
+const UserProfile: React.FC = () => {
+  const [user, setUser] = useState<any>(null); // Adjust the type as per your user object structure
 
   const getUser = async () => {
-    const userFromApi = await auth.getUserProfile();
-    setUser(userFromApi);
+    try {
+      const userFromApi = await auth.getUserProfile();
+      setUser(userFromApi);
+    } catch (error) {
+      console.error("Error fetching user profile:", error);
+    }
   };
 
   useEffect(() => {
@@ -15,12 +19,10 @@ const UserProfile = () => {
   }, []);
 
   if (!user) {
-    return (
-      <div>Loading...</div>
-    );
+    return <div>Loading...</div>;
   }
 
-  return <UserProfile user={user} />;
+  return <UserProfileComponent user={user} />;
 };
 
 export default UserProfile;

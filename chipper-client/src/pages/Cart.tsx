@@ -1,44 +1,62 @@
-import React, { useState, useEffect } from "react";
-import { Product } from "../services/product"; // Make sure this path is correct
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { cart } from "../services/cart";
-import CheckoutButton from "../components/CheckoutButton"; // Make sure this path is correct
+import RatingStars from "../components/RatingStars";
 
-interface ProductType {
-  id: number;
-  name: string;
-  imageUrl: string;
-  price: number;
-  // Add other properties as needed
+interface CartProduct {
+  product: {
+    id: string;
+    name: string;
+    description: string;
+    rating: number;
+    price: number;
+  };
+  quantity: number;
 }
 
 const Cart = () => {
-  const [productsInCart, setProductsInCart] = useState<ProductType[]>([]);
-
-  const getProductsInCart = async () => {
-    const products = await Product.getProducts();
-    const productsInCart = await cart.getProductsInCart();
-
-    setProductsInCart(products.filter((product) => productsInCart.includes(product.id)));
-  };
+  const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
+  const [totalPrice, setTotalPrice] = useState<number>(0);
 
   useEffect(() => {
-    getProductsInCart();
+    async function fetchCartProducts() {
+      try {
+        const products: CartProduct[] = await cart.getProductsInCart();
+        setCartProducts(products);
+
+        const prices = products.map((item: CartProduct) => item.product.price * item.quantity);
+        const totalPrice = prices.reduce((a, b) => a + b, 0);
+        setTotalPrice(totalPrice);
+      } catch (error) {
+        console.error("Error fetching cart products:", error);
+      }
+    }
+
+    fetchCartProducts();
   }, []);
 
   return (
-    <div>
-      <h1>Cart</h1>
-      {productsInCart.map((product: ProductType) => (
-        <div key={product.id}>
-          <img src={product.imageUrl} alt={product.name} />
-          <h3>{product.name}</h3>
-          <p>${product.price}</p>
-          <button onClick={() => cart.removeFromCart(product.id)}>
-            Remove from Cart
-          </button>
+    <div className="cart">
+      <h2>Cart</h2>
+      {cartProducts.map((item: CartProduct, index: number) => (
+        <div className="cart-item" key={index}>
+          <div className="product-details">
+            <h3>
+              <Link to={`/product/${item.product.id}`}>{item.product.name}</Link>
+            </h3>
+            <p>{item.product.description}</p>
+            <RatingStars rating={item.product.rating} />
+            <p>Quantity: {item.quantity}</p>
+          </div>
+          <div className="product-price">
+            <p>Price: ${item.product.price}</p>
+            <p>Total: ${item.product.price * item.quantity}</p>
+          </div>
         </div>
       ))}
-      <CheckoutButton />
+      <div className="total-price">
+        <p>Total Price: ${totalPrice}</p>
+      </div>
     </div>
   );
 };

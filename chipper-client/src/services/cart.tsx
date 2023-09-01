@@ -1,7 +1,7 @@
-import api from "./api";
+import { api } from "./api";
 
 export const cart = {
-  addToCart: async (productId) => {
+  addToCart: async (productId: string) => {
     const response = await api.post("/cart/add", { productId });
 
     if (response.status === 201) {
@@ -10,8 +10,8 @@ export const cart = {
       throw new Error(response.data.message);
     }
   },
-  removeFromCart: async (productId) => {
-    const response = await api.delete("/cart/remove", { productId });
+  removeFromCart: async (productId: string) => {
+    const response = await api.delete("/cart/remove", { data: { productId } });
 
     if (response.status === 204) {
       return true;
