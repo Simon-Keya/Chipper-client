@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { product } from '../services/product'; // Correct the import case
-import ProductCard from '../components/ProductCard'; // Import ProductCard
+import { product } from '../services/product'; 
 
 interface ProductType {
   id: number; // Correct the type of 'id'
@@ -34,9 +33,13 @@ const ProductDetail: React.FC = () => {
   return (
     <div>
       {productData ? (
-        <ProductCard
-          product={productData} // Pass the whole productData object as 'product'
-        />
+        <div className="product-detail">
+          <img src={productData.imageUrl} alt={productData.name} className="product-image" />
+          <h1>{productData.name}</h1>
+          <p>{productData.description}</p>
+          <p>Price: ${productData.price}</p>
+          {/* Add any additional information or functionality related to the product */}
+        </div>
       ) : (
         <p>Loading...</p>
       )}

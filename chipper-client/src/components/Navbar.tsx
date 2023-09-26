@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import React from 'react';
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import '../App.scss'; // Import your custom styles
 
 interface NavbarProps {
   isLoggedIn: boolean;
@@ -9,48 +9,41 @@ interface NavbarProps {
 
 const CustomNavbar: React.FC<NavbarProps> = ({ isLoggedIn, username }) => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand as={Link} to="/">
-        Chipper Ecommerce
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="navbar-nav" />
-      <Navbar.Collapse id="navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/">
-            Home
-          </Nav.Link>
-          <Nav.Link as={Link} to="/products">
-            Products
-          </Nav.Link>
-          <Nav.Link as={Link} to="/cart">
-            Cart
-          </Nav.Link>
-        </Nav>
-        {isLoggedIn ? (
-          <Nav>
-            <NavDropdown title={`Hello, ${username}`} id="user-dropdown">
-              <NavDropdown.Item as={Link} to="/account">
-                Account
-              </NavDropdown.Item>
+    <Navbar collapseOnSelect expand="lg" className="custom-navbar"> {/* Apply custom style */}
+      <Container>
+        <Navbar.Brand href="/">Chipper Ecommerce</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/products">Products</Nav.Link>
+            <Nav.Link href="/cart">Cart</Nav.Link>
+            <NavDropdown title="Help" id="collapsible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1"></NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Track & Place Order</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Order Cancellation</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to="/logout">
-                Logout
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">Returns & Refunds</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-        ) : (
-          <Nav>
-            <Nav.Link as={Link} to="/login">
-              Login
-            </Nav.Link>
-            <Nav.Link as={Link} to="/register">
-              Register
-            </Nav.Link>
+          <Nav className="ml-auto"> {/* Align items to the right */}
+            {isLoggedIn ? (
+              <NavDropdown title={`Hello, ${username}`} id="user-dropdown">
+                <NavDropdown.Item href="/account">Account</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
+              </NavDropdown>
+            ) : (
+              <>
+                <Nav.Link href="/login">Login</Nav.Link>
+                <Nav.Link href="/register">Register</Nav.Link>
+              </>
+            )}
           </Nav>
-        )}
-      </Navbar.Collapse>
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
   );
-};
+}
 
 export default CustomNavbar;

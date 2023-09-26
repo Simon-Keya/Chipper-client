@@ -16,12 +16,16 @@ body {
 }
 
 /* Navigation Styles */
+/* navbar.scss */
+
+/* Navbar Styles */
+
 .navbar {
-  background-color: #82b89e;
+  background-color: #1d9199;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 20px 30px;
 }
 
 .nav-link {
@@ -32,6 +36,50 @@ body {
 }
 
 .nav-link:hover {
+  color: #ff9900;
+}
+
+.nav-logo {
+  margin-right: 20px;
+}
+
+.nav-toggle {
+  cursor: pointer;
+  display: none;
+}
+
+.navbar-collapse {
+  display: flex;
+}
+
+.nav-toggle:hover {
+  color: #ff9900;
+}
+
+.nav-logo {
+  margin-right: 20px;
+}
+
+.nav-toggle {
+  cursor: pointer;
+  display: none;
+}
+
+.navbar-collapse {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navbar-collapse {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+.nav-toggle:hover {
   color: #ff9900;
 }
 

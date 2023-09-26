@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Card, CardGroup } from 'react-bootstrap';
 
 // Assuming the Product type has the following structure
 interface Product {
@@ -35,22 +36,26 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   }, [product.id]);
 
   return (
-    <div className="product-card">
-      <Link to={`/products/${product.id}`}>
-        <img src={product.imageUrl} alt={product.name} />
-      </Link>
-      <h3>{product.name}</h3>
-      <p>{product.description}</p>
-      <p>${product.price}</p>
-      <button
-        disabled={isAddedToCart}
-        onClick={() => {
-          setIsAddedToCart(true);
-        }}
-      >
-        Add to Cart
-      </button>
-    </div>
+    <CardGroup>
+      <Card className="product-card">
+        <Link to={`/products/${product.id}`}>
+          <Card.Img variant="top" src={product.imageUrl} alt={product.name} />
+        </Link>
+        <Card.Body>
+          <Card.Title>{product.name}</Card.Title>
+          <Card.Text>{product.description}</Card.Text>
+          <Card.Text>${product.price}</Card.Text>
+          <button
+            disabled={isAddedToCart}
+            onClick={() => {
+              setIsAddedToCart(true);
+            }}
+          >
+            Add to Cart
+          </button>
+        </Card.Body>
+      </Card>
+    </CardGroup>
   );
 };
 
