@@ -1,0 +1,51 @@
+/* Cart.scss */
+
+/* Cart Styles */
+
+.cart {
+    padding: 20px;
+  }
+  
+  .cart h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .cart-item {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .product-details {
+    flex: 1;
+  }
+  
+  .product-details h3 {
+    font-size: 1.5em;
+  }
+  
+  .product-details p {
+    font-size: 1em;
+  }
+  
+  .product-price {
+    text-align: right;
+  }
+  
+  .product-price p {
+    font-size: 1em;
+  }
+  
+  .total-price {
+    text-align: right;
+    margin-top: 20px;
+  }
+  
+  .total-price p {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  /* Optional: Add more styles as needed */
+  

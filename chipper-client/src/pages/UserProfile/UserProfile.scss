@@ -1,0 +1,33 @@
+/* UserProfile.scss */
+
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .user-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  .user-info {
+    text-align: center;
+  }
+  
+  .user-name {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .user-email {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
+  /* Add any additional styles as needed */
+  

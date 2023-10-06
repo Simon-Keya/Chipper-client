@@ -1,0 +1,60 @@
+/* product.scss */
+
+/* Product Styles */
+
+.product {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+  }
+  
+  .product h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .product p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .product .quantity-controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .product .quantity-controls button {
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin: 0;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .product .quantity-controls span {
+    font-size: 1rem;
+    margin: 0 10px;
+  }
+  
+  .product .quantity-controls button:hover {
+    background-color: #0056b3;
+  }
+  
+  .product button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .product button:hover {
+    background-color: #218838;
+  }
+  
+  /* Optional: Add additional styles as needed */
+  

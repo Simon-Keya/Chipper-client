@@ -1,0 +1,37 @@
+/* ReviewForm.scss */
+
+form {
+    max-width: 600px; /* Set a maximum width for the form */
+    margin: 0 auto; /* Center-align the form on the page */
+  }
+  
+  form label {
+    font-weight: bold; /* Make the labels bold */
+  }
+  
+  form select,
+  form textarea {
+    width: 100%; /* Make the select and textarea take up full width */
+    padding: 8px; /* Add some padding for better spacing */
+    margin-bottom: 12px; /* Add some space below the inputs */
+  }
+  
+  form textarea {
+    height: 100px; /* Set a fixed height for the textarea */
+  }
+  
+  form button {
+    background-color: #007bff; /* Set a background color for the button */
+    color: #fff; /* Set text color to white */
+    padding: 10px 20px; /* Add padding to the button */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Change cursor on hover */
+    font-size: 16px; /* Set font size */
+  }
+  
+  form button:hover {
+    background-color: #0056b3; /* Change background color on hover */
+  }
+  
+  /* Optional: Add more styles as per your design preferences */
+  

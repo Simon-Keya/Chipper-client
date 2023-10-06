@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { cart } from "../services/cart";
-import RatingStars from "../components/RatingStars";
+import { cart } from "../../services/cart";
+import RatingStars from "../../components/RatingStars/RatingStars";
+import './Cart.scss';
 
 interface CartProduct {
   product: {

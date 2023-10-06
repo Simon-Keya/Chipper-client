@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { product } from '../services/product'; 
+import { product } from '../../services/product'; 
+import './ProductDetail.scss';
 
 interface ProductType {
   id: number; // Correct the type of 'id'

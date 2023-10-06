@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { auth } from "../services/auth";
-import UserProfileComponent from "../components/UserProfile";
+import { auth } from "../../services/auth";
+import UserProfileComponent from "../../components/UserProfile/UserProfile";
+import './UserProfile.scss';
+
 
 const UserProfile: React.FC = () => {
   const [user, setUser] = useState<any>(null); // Adjust the type as per your user object structure

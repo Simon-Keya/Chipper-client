@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
-import '../App.scss'; // Import your custom styles
+import './Navbar.scss';
+
 
 interface NavbarProps {
   isLoggedIn: boolean;

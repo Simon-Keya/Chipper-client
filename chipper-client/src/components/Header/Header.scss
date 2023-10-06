@@ -1,0 +1,30 @@
+/* Header.scss */
+
+/* Header Styles */
+
+header {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  nav a:hover {
+    color: #ff9900;
+  }
+  
+  /* Optional: Add more styles as needed */
+  

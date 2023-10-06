@@ -1,0 +1,17 @@
+/* Home.scss */
+
+/* Home Styles */
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Optional: Add more styles as needed */
+  

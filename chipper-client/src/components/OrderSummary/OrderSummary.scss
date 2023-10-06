@@ -1,0 +1,37 @@
+/* OrderSummary.scss */
+
+/* OrderSummary Styles */
+
+.table {
+    margin-bottom: 0;
+  }
+  
+  .table thead th {
+    background-color: #1d9199;
+    color: white;
+  }
+  
+  .table tbody td {
+    background-color: #f8f9fa;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #e9ecef;
+  }
+  
+  .table tfoot td {
+    background-color: #1d9199;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .table tfoot td:first-child {
+    font-weight: normal;
+  }
+  
+  .table tfoot tr:hover {
+    background-color: #007bff;
+  }
+  
+  /* Optional: Add additional styles as needed */
+  

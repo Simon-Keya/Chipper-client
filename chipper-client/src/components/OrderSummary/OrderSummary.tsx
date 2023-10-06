@@ -1,5 +1,7 @@
 import React from "react";
 import { Table } from "react-bootstrap";
+import './OrderSummary.scss';
+
 
 interface Product {
   id: number;

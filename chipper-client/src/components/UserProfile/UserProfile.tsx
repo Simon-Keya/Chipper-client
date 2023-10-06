@@ -1,4 +1,6 @@
 import React from "react";
+import './UserProfile.scss';
+
 
 interface UserProfileProps {
   user: {

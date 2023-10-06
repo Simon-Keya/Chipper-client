@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardGroup } from 'react-bootstrap';
+import './ProductCard.scss';
+
 
 // Assuming the Product type has the following structure
 interface Product {

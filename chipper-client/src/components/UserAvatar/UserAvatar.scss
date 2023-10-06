@@ -1,0 +1,20 @@
+/* UserAvatar.scss */
+
+.user-avatar {
+    text-align: center; /* Center-align the content */
+    margin-bottom: 20px; /* Add some space below the avatar */
+  }
+  
+  .user-avatar img {
+    width: 100px; /* Set the width of the avatar image */
+    height: 100px; /* Set the height of the avatar image */
+    object-fit: cover; /* Maintain aspect ratio while covering the space */
+    border-radius: 50%; /* Make the image circular */
+    margin-bottom: 10px; /* Add some space below the image */
+  }
+  
+  .user-avatar p {
+    margin: 0; /* Remove any default margin */
+    font-size: 18px; /* Set font size for the username */
+  }
+  

@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Form, Button } from "react-bootstrap";
+import './LoginForm.scss';
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");

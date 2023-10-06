@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { product } from "../services/product"; // Use 'product' instead of 'Product'
-import ProductCard from "../components/ProductCard";
-import CheckoutButton from "../components/CheckoutButton";
+import { product } from "../../services/product"; // Use 'product' instead of 'Product'
+import ProductCard from "../../components/ProductCard/ProductCard";
+import CheckoutButton from "../../components/CheckoutButton/CheckoutButton";
+import './Home.scss';
+
 
 interface ProductType {
   id: number;

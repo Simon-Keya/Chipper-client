@@ -1,5 +1,6 @@
 import React from "react"; // Make sure to import React
-import CheckoutButton from "../components/CheckoutButton"; // Make sure this path is correct
+import CheckoutButton from "../../components/CheckoutButton/CheckoutButton"; // Make sure this path is correct
+import './Checkout.scss';
 
 const CheckoutPage = () => {
   const handleOrderSubmit = (event: React.FormEvent<HTMLFormElement>) => {

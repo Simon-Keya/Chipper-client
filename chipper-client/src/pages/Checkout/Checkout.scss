@@ -1,0 +1,48 @@
+/* Checkout.scss */
+
+/* Checkout Styles */
+
+.checkout {
+    padding: 20px;
+  }
+  
+  .checkout h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .checkout form {
+    margin-bottom: 20px;
+  }
+  
+  .checkout label {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+  }
+  
+  .checkout input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  .checkout button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+  
+  .checkout button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Optional: Add more styles as needed */
+  

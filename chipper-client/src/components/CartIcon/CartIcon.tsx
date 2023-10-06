@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import Badge from "react-bootstrap/Badge"; // Import Badge directly
+import './CartIcon.scss';
 
 const CartIcon = () => {
   const [cartCount, setCartCount] = useState(0);

@@ -1,6 +1,8 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
+import './ReviewForm.scss';
+
 
 interface ReviewFormProps {
   product: any; // Replace 'any' with the actual type of 'product'
