@@ -23,7 +23,7 @@ import  './components/Product/Product.scss'; // Import the Product component
 
 function App() {
   const isLoggedIn = true; // Set this value based on your app's logic
-  const username = "Joshu Poet"; // Replace with the actual username
+  const username = "Simon Keya"; // Replace with the actual username
 
   return (
     <Router>
